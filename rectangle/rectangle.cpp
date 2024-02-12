@@ -8,13 +8,20 @@ public:
     Rectangle() = default;
     Rectangle(const int x1, const int y1, const int x2, const int y2)
     {
-        length = std::abs(x2 - x1);
-        width = std::abs(y2-y1);
+        length_ = std::abs(x2 - x1);
+        width_ = std::abs(y2-y1);
     }
-    void parameters() {
-        std::cout << "Length: " << length << std::endl;
-        std::cout << "Width: " << width << std::endl;
+
+    int length() {
+        return length_;
     }
+    int width() {
+        return width_;
+    }
+    int square() {
+        return width_ * length_;
+    }
+
 
 private:
     int x1 = 0;
@@ -25,15 +32,19 @@ private:
     int y3 = 0;
     int x4 = 0;
     int y4 = 0;
-    int length = 0;
-    int width = 0;
+    int length_ = 0;
+    int width_ = 0;
 };
 
 int main()
 {
     Rectangle rec1;
-    rec1.parameters();
+    std::cout << "Length: " << rec1.length() << std::endl;
+    std::cout << "Width: " << rec1.length() << std::endl;
+    std::cout << "Square: " << rec1.square() << std::endl;
     Rectangle rec2(2, 3, -2, -3);
-    rec2.parameters();
+    std::cout << "Length: " << rec2.length() << std::endl;
+    std::cout << "Width: " << rec2.width() << std::endl;
+    std::cout << "Square: " << rec2.square() << std::endl;
     return 0;
 }
